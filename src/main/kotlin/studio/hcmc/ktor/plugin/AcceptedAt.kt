@@ -3,10 +3,11 @@ package studio.hcmc.ktor.plugin
 import io.ktor.server.application.*
 import io.ktor.util.*
 import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 
-private val acceptedAtAttributeKey = AttributeKey<kotlinx.datetime.Instant>("acceptedAt")
+private val acceptedAtAttributeKey = AttributeKey<Instant>("acceptedAt")
 
-var ApplicationCall.acceptedAt: kotlinx.datetime.Instant
+var ApplicationCall.acceptedAt: Instant
     get() = attributes[acceptedAtAttributeKey]
     set(value) { attributes.put(acceptedAtAttributeKey, value) }
 

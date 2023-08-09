@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.0"
+    id("maven-publish")
 }
 
 group = "studio.hcmc"
@@ -9,14 +10,25 @@ repositories {
     mavenCentral()
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "studio.hcmc"
+            artifactId = "ktor-plugin-accepted-at"
+            version = "0.0.4"
+            from(components["java"])
+        }
+    }
+}
+
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.4.0")
 
     implementation("io.ktor:ktor-server-core-jvm:2.3.2")
     implementation("io.ktor:ktor-server-status-pages-jvm:2.3.2")
     implementation("io.ktor:ktor-server-host-common-jvm:2.3.2")
-}
-
-kotlin {
-    jvmToolchain(17)
 }
