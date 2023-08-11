@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "studio.hcmc"
-version = "1.0-SNAPSHOT"
+version = "0.0.4"
 
 repositories {
     mavenCentral()
